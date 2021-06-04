@@ -62,8 +62,9 @@ class Node:
             current = queue.pop(0)
             if current._value is value:
                 return value
-            for child in current.children:
-                queue.append(child)
+            # for child in current._children:
+            queue.extend(current._children)
+                # queue.append(child)
                 
     
     def __repr__(self):
