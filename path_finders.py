@@ -2,7 +2,7 @@ from tree import Node
 
 class KnightPathFinder:
     def __init__(self, root):
-        self._root = Node(root)
+        self._root = Node(root) #root is a pos and a tuple
         self._considered_positions = set(root) 
         
     
@@ -46,6 +46,24 @@ class KnightPathFinder:
         return possible_new_possition
     
     
-    
+    def build_move_tree(self):
+        queue = [self._root]
+        
+        while len(queue) > 0:
+            current = queue.pop(0) # (1, -2)
+            possible_position = self.new_move_positions(current.value)
+            for position in possible_position:
+                new_node = Node(position)
+                current.add_child(new_node)
+                queue.append(new_node)
+                # return 
+        #         (1,2)
+        #     /           \
+        # (2, -1)         
+                
+        
+# finder = KnightPathFinder((0, 0))
+# print(finder.new_move_positions((0, 0)))
 finder = KnightPathFinder((0, 0))
-print(finder.new_move_positions((0, 0)))
+finder.build_move_tree()
+print(finder._root.children)
