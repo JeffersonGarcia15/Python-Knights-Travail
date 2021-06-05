@@ -62,8 +62,11 @@ class KnightPathFinder:
         # (2, -1)         
                 
         
+    def find_path(self, end_position):
+        
+        
 # finder = KnightPathFinder((0, 0))
 # print(finder.new_move_positions((0, 0)))
-finder = KnightPathFinder((0, 0))
-finder.build_move_tree()
-print(finder._root.children)
+# finder = KnightPathFinder((0, 0))
+# finder.build_move_tree()
+# print(finder._root.children)
